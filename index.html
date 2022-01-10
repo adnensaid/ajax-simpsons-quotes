@@ -29,18 +29,33 @@
 	<body>
 		<section class="section">
 			<div class="container">
+				<button class="btn">Nouvelle blagues</button>
 				<h1 class="title">Simpson API</h1>
-
 				<div class="content" id="chuck-norris"></div>
 			</div>
 		</section>
-
+		<script>
+			document.querySelector('.btn').addEventListener('click', function() {
+			let url = "https://simpsons-quotes-api.herokuapp.com/quotes";
+			fetch(url)
+			.then(response =>response.json()
+			.then(res =>{
+				
+				let display = `
+				<p><strong>${ res[0].quote }</strong></p>
+				<p>${ res[0].character }<p/>
+				<img src=${ res[0].image } />
+				`;
+				document.querySelector('.content').innerHTML = display;
+			})
+			);
+			})
+		</script>
 		<!-- We need to load axios first! -->
-		<script
+<!-- 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
 			integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs="
 			crossorigin="anonymous"
-		></script>
-		<script></script>
+		></script> -->
 	</body>
 </html>

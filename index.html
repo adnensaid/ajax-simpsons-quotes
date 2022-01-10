@@ -35,7 +35,7 @@
 			</div>
 		</section>
 		<script>
-			document.querySelector('.btn').addEventListener('click', function() {
+			let blague = ()=>{
 			let url = "https://simpsons-quotes-api.herokuapp.com/quotes";
 			fetch(url)
 			.then(response =>response.json()
@@ -48,8 +48,14 @@
 				`;
 				document.querySelector('.content').innerHTML = display;
 			})
-			);
+			);		
+				
+			}
+			document.querySelector('.btn').addEventListener('click', function() {
+				return blague();
 			})
+			blague();
+
 		</script>
 		<!-- We need to load axios first! -->
 <!-- 		<script
